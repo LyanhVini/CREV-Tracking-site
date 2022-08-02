@@ -1,0 +1,157 @@
+body{
+	margin: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	box-sizing: border-box;
+	background-image: url(Designer/designer1.jpg);
+	background-size: auto;
+
+}
+
+nav{
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;;
+	background: url(Designer/barra-de-navegacao.png);
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+
+nav .logo{
+	color: #fff;
+	float: left;
+	display: block;
+	padding: 0em 1em;
+}
+
+nav a{
+	color: #fff;
+	float: right;
+	text-decoration: none;
+	display: block;
+	padding: 1.5em 2em;
+}
+
+#gif{
+	position: relative;
+	left: 50em;
+	top: -23em;
+	width: 25em;
+}
+
+.conteudo{
+	width: 100%;
+	height: 100%;
+	font-size: 1em;
+	color: white;
+
+}
+
+.fixed{
+	position: fixed;
+	top: 87%;
+	left: 40%;
+	border-top: 2px solid #191970;
+
+}
+
+.sobre-instituicoes{
+
+	position: fixed;
+	background: #191970;
+	width: 100%;
+	top: 88%;
+	border: 2px solid #191970;
+
+
+}
+
+/*Seletores fixos*/
+
+h2{
+
+	font-size: 2em;
+	margin-left: 2em;
+}
+
+p{
+
+	font-size: 1em;
+	margin-left: 4em;
+	margin-right: 4em;
+}
+
+.centering{
+	text-align: center;
+}
+
+.alinhamento{
+	float: left;
+
+}
+
+.integrantes{
+
+	color: white;
+	padding: 0px;
+	width: 400px; 
+	display: block;
+	margin-left: 30px;
+	float: left;
+}
+
+#botao{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	border: 5px solid black;
+	margin-left: 20em;
+	display: inline-table;
+	text-decoration: none;
+	color: #fff;
+}
+
+
+
+ /*
+ul {
+	margin: 0px;
+	padding: 10px;
+	list-style: none;
+	width: auto;
+	background: #169cb0 repeat-x;
+	float: left; 
+}
+
+#ajustamento{
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+
+ul li{	
+	float: left;
+}
+
+ul a{
+
+	display: block;
+	padding: 0 2.4em;
+	line-height: 2em;
+	text-decoration: none;
+	color: white;
+}
+
+
+ul .primeiro a{
+	background: none;
+}
+
+ul a:hover{
+	color: #085662;
+	background: #44cade;
+}
+
+#home #navegacao .home a{
+	background-position: right bottom;
+	background-color: #f99200;
+	color: #fff;
+}
+*/
