@@ -1,42 +1,161 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <title>Teste - CREV-Tracking</title>
+      <py-env>
+        - numpy
+        - matplotlib
+        - altair
+        - vega_datasets
+        - pandas
+      </py-env>
+      <link rel="stylesheet" type="text/css" href="estilo.css">
+      <style type="text/css">
+        body{
+          height: 1150px;
+          background: #6495ED;
+        }
+      </style>
+    </head>
+  <body>
+    <div>
+        <nav>
+        <div class="moni">
+          <div class="logo"> 
+            <a href="index.html" class="logo">
+              <img width="128px" src="Designer/REV.png">
+            </a>
+          </div>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Página Inicial CREV-Tracking</title>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+          <a href="index.html">Página Inicial</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="sobre.html">Sobre</a>
 
-</head>
+        </div>
+        </nav>
+      
 
-<body id="home ajustamento">
+        <div id="dash"><br><br><h2>Dados do Monitoramento</h2></div>
 
-	<div class="fixed">
-		<img width="100px" src="Designer/lpo.png">
-		<img width="60px" src="Designer/logo-uerj.png">
-		<img width="60px" src="Designer/ufpa.png">
-	</div>
+        <!--Colocar um botão pra escolher o tipo de vírus a ser analisado-->
 
-	<div>
+        <select id="botao-virus"> <!-- Cria caixa de seleção -->
+          <option value="sp">Influenza (Gripe)</option>
+          <option value="pa">Rinovirus (Resfriado)</option>
+          <option value="sc">SARS-CoV-2 (COVID-19)</option>
+          <option value="rj">Pneumonia viral</option>
+          <option value="am">Sarampo</option>
+          <option value="pr">Tuberculose</option>
+        </select> <br><br>
 
-		<div class="conteudo">
+        <br>
 
-			<nav>
-			<div class="logo"> 
-				<a href="index.html" class="logo">
-					<img width="128px" src="Designer/REV.png">
-				</a>
-			</div>
-			<a href="index.html">Página Inicial</a>
-			<a href="suporte.html">Suporte</a>
-			<a href="sobre.html">Sobre</a>
-			</nav>
+        <div id="graph-risk"></div>
 
-			<br><br><br><br><br>
+        <py-script output="graph-risk">
+        import numpy as np
+        import altair as alt
 
-		</div>
-	</div>
+        alt.Chart().mark_arc(color="gold").encode(
+            theta=alt.datum((5 / 8) * np.pi, scale=None),
+            theta2=alt.datum((19 / 8) * np.pi),
+            radius=alt.datum(100, scale=None),
+            color=alt.value('#191970')
+        ).properties(
+            title="Risco de Contaminação"
+        ).configure(background="#6495ED").configure_view(
+          strokeWidth=0
+        )
+        </py-script>
+        <div id="graph-people"></div>
+        <py-script output="graph-people">
 
-</body>
+        import altair as alt
+        from vega_datasets import data
 
+        source = data.stocks()
+
+        alt.Chart(source).mark_line(interpolate='step-after').encode(
+            x='date',
+            y='price',           
+            color=alt.value('#191970')
+            
+        ).transform_filter(
+            alt.datum.symbol == 'GOOG'
+        ).properties(
+            title="Pessoas ao longo do dia"
+        ).configure(background="#6495ED").configure_view(
+          strokeWidth=0
+        )
+        </py-script>
+        <div id="graph-mask"></div>
+        <py-script output="graph-mask">
+        import pandas as pd
+        import altair as alt
+
+        source = pd.DataFrame({"Category": ['Com máscara', 'Sem máscara', 'Com máscara irregular'], "value": [4, 6, 10]})
+
+        alt.Chart(source).mark_arc().encode(
+            theta=alt.Theta(field="value", type="quantitative"),
+            color=alt.Color(field="Category", type="nominal", legend=alt.Legend(title="Classes")),
+        ).properties(
+            title="Classes"
+        ).configure(background="#6495ED").configure_view(
+          strokeWidth=0
+        )
+        </py-script>
+
+
+        <div id="graph-occupation"></div>
+        <py-script output="graph-occupation">
+        import altair as alt
+        import numpy as np
+        import pandas as pd
+
+        # Compute x^2 + y^2 across a 2D grid
+        x, y = np.meshgrid(range(-5, 5), range(-5, 5))
+        z = x ** 2 + y ** 2
+
+        # Convert this grid to columnar data expected by Altair
+        source = pd.DataFrame({'x': x.ravel(),
+                            'y': y.ravel(),
+                            'z': z.ravel()})
+
+        alt.Chart(source).mark_rect().encode(
+            x='x:O',
+            y='y:O',
+            color='z:Q'
+        ).properties(
+            title="Gráfico de Ocupação",
+            width=300,
+            height=300
+        ).configure(background="#6495ED").configure_view(
+          strokeWidth=0
+        )
+
+        
+        </py-script>
+        <!--
+        <div id="button">
+
+          <button type="button" onclick="runPython()">Baixar arquivo com os dados</button>
+
+          <script>
+            function runPython() { 
+
+              <py-script>
+              print("Você clicou no botão")
+              </py-script>
+            }
+          </script>  
+
+        </div>
+        -->
+        <div id="baixar-dados">
+        <a href="download.html">Baixar arquivo com os dados</a>
+        </div>
+    </div>    
+  </body>
 </html>
