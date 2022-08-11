@@ -2,17 +2,24 @@ body{
 	margin: 0;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	box-sizing: border-box;
-	background-image: url(Designer/designer1.jpg);
 	background-size: auto;
-
+	height: 2000px;
 }
 
-nav{
+nav .index{
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;;
+	background: url(Designer/barra-de-navegacao.png)/*linear-gradient(to top, #340464, #481d81) */;
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+
+nav .moni{
 	font-size: 1em;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;;
 	background: url(Designer/barra-de-navegacao.png);
 	overflow: hidden;
-	position: fixed;
 	width: 100%;
 }
 
@@ -24,34 +31,41 @@ nav .logo{
 }
 
 nav a{
-	color: #fff;
+	color: #FFF;
 	float: right;
 	text-decoration: none;
 	display: block;
 	padding: 1.5em 2em;
 }
-
 #gif{
 	position: relative;
 	left: 50em;
-	top: -23em;
+	top: -26em;
 	width: 25em;
 }
-
 .conteudo{
 	width: 100%;
 	height: 100%;
 	font-size: 1em;
 	color: white;
-
 }
 
+nav.moni, a:hover{
+	border-bottom: 1px solid #6495ED;
+	color: #6495ED;
+	
+}
+
+.conteudo a:hover{
+	border-bottom: 1px solid #D3D3D3;
+	color: #D3D3D3;
+}
 .fixed{
+
 	position: fixed;
 	top: 87%;
 	left: 40%;
 	border-top: 2px solid #191970;
-
 }
 
 .sobre-instituicoes{
@@ -59,18 +73,23 @@ nav a{
 	position: fixed;
 	background: #191970;
 	width: 100%;
-	top: 88%;
+	top: 87%;
 	border: 2px solid #191970;
-
 
 }
 
 /*Seletores fixos*/
 
 h2{
-
+	color: #fff;
 	font-size: 2em;
 	margin-left: 2em;
+}
+
+#dash h2{
+	text-align: center;
+	color:black;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 p{
@@ -99,59 +118,109 @@ p{
 	float: left;
 }
 
-#botao{
+.integrantes a:hover{
+	background: #D3D3D3;
+}
+
+#botao {
+	
+	border: 3px outset #D3D3D3;
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	background: white;
+	margin-left: 15em;
+	padding: auto;
+}
+
+#botao a{
+	text-decoration: none;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	border: 5px solid black;
-	margin-left: 20em;
-	display: inline-table;
-	text-decoration: none;
-	color: #fff;
+	color: black;
 }
 
+#botao:hover {
+	text-decoration: none;
+	background-color: #f1f1f1;
+	border: 3px inset #D3D3D3;
+}
 
+#botao-virus{
 
- /*
-ul {
-	margin: 0px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+	margin-left: 45%;
+	position: relative;
+	top: 2em;
+	padding: 0.3em;
+
+}
+
+/*DASHBOARD*/
+
+#graph-risk{
+	width: 26em;
+	height: 20em;
+	/*: 1px solid red;*/
+	display: table;
+	margin-left: 10em;
+	position: relative;
+	top: 1.5em;
+}
+
+#graph-people{
+	width: 25.8em;
+	height: 20em;
+	/*border: 1px solid red;*/
+	display: table;
+	margin-left: 1em;
+	position: relative;
+	top: -18.5em;
+	left: 42em;
+
+}
+
+#graph-occupation{
+	width: 18.5em;
+	height: 15em;
+	/*border: 1px solid red;*/
+	margin-left: 11em;
+	margin-top: -35em;
+}
+
+#graph-mask{
+	width: 30em;
+	height: 20em;
+	/*border: 1px solid red;*/
+	position: relative;
+	left: 39em;
+	top:-15em;
+}
+
+#dash{
+
+	justify-content: center;
+	/*border: 1px solid red;*/
+}
+
+#baixar-dados a{
 	padding: 10px;
-	list-style: none;
-	width: auto;
-	background: #169cb0 repeat-x;
-	float: left; 
+	border: 3px outset #477fe9;
+	background-color: #191970;
+	color: #FFF;
 }
 
-#ajustamento{
-	align-items: center;
-	align-content: center;
+#baixar-dados a:hover{
+	
+	border: 3px inset #477fe9;
+
+}
+
+#baixar-dados{
+	font-size: bold;
+	position: relative;
+	margin: 0 auto;
+	top: 10.5em;
 	text-align: center;
+
 }
-
-ul li{	
-	float: left;
-}
-
-ul a{
-
-	display: block;
-	padding: 0 2.4em;
-	line-height: 2em;
-	text-decoration: none;
-	color: white;
-}
-
-
-ul .primeiro a{
-	background: none;
-}
-
-ul a:hover{
-	color: #085662;
-	background: #44cade;
-}
-
-#home #navegacao .home a{
-	background-position: right bottom;
-	background-color: #f99200;
-	color: #fff;
-}
-*/
