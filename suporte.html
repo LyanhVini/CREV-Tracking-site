@@ -7,21 +7,40 @@
 	<title>Suporte CREV-Tracking</title>
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 
+    <style>
+        body{
+        	background-image: url(Designer/designer3.png);
+            height: 840px;
+        }
+        .content{display: flex; justify-content: center;}
+        .contato{width: 100%; max-width: 500px;}
+        .form{display:flex; flex-direction: column;}
+        .field{padding: 10px; margin-bottom: 15px; border: 1px solid #DDD;border-radius: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;}
+        textarea{height: 150px;}
+
+    </style>
+
 </head>
 
 <body id="home ajustamento">
 
-	<div class="fixed">
-		<img width="100px" src="Designer/lpo.png">
-		<img width="60px" src="Designer/logo-uerj.png">
-		<img width="60px" src="Designer/ufpa.png">
+	<div class="sobre-instituicoes centering">
+		<a href="https://www.lpo.ufpa.br">
+			<img width="100px" src="Designer/lpo.png">&nbsp;&nbsp;&nbsp;
+		</a>
+		<a href="https://www.uerj.br">
+			<img width="60px" src="Designer/logo-uerj.png">&nbsp;&nbsp;&nbsp;&nbsp;
+		</a>
+		<a href="https://portal.ufpa.br">
+			<img width="60px" src="Designer/ufpa.png">
+		</a>
 	</div>
-
 	<div>
 
 		<div class="conteudo">
 
 			<nav>
+			<div class="index">
 			<div class="logo"> 
 				<a href="index.html" class="logo">
 					<img width="128px" src="Designer/REV.png">
@@ -30,10 +49,30 @@
 			<a href="index.html">Página Inicial</a>
 			<a href="suporte.html">Suporte</a>
 			<a href="sobre.html">Sobre</a>
+			</div>
 			</nav>
 
 			<br><br><br><br><br>
 
+			<h2>Contato</h2>
+			<p>Email: crev.tracking@gmail.com</p>
+			<h2>Para mais dúvidas, deixe um comentário adicional abaixo:</h2>
+
+            <section class="content">
+                
+                <div class="contato">
+
+                    <form class="form" method="POST" action="./email.php">
+
+                        <input class="field" name="name" placeholder="Nome" required >
+                        <input class="field" name="email" placeholder="E-mail" required >
+                        <textarea class="field" name="message" placeholder="Digite sua mensagem aqui" rows="10" cols="60" required></textarea>
+
+                        <input class="field" type="submit" value="Enviar">
+
+                    </form>
+                </div>
+            </section>
 		</div>
 	</div>
 
